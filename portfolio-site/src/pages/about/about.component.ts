@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   selector: 'app-about',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  templateUrl: '../about/about.component.html',
+  styleUrls: ['../about/about.component.css']
 })
 export class AboutComponent {
  name = 'Kerim Can'

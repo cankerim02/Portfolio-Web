@@ -1,4 +1,31 @@
-<section class="p-4">
-  <h2 class="text-2xl font-bold">Projeler</h2>
-  <p>Burada yaptığım projeleri görebileceksiniz.</p>
-</section>
+
+<h2 class="text-3xl font-bold mb-4">Projelerim</h2>
+
+<ul>
+  <li *ngFor="let project of projects">
+    <div *ngIf="project.active; else inactiveProject" class="mb-4 p-4 border rounded shadow hover:shadow-lg transition">
+
+      <h3 class="text-xl font-semibold text-blue-600">
+
+        <a *ngIf="project.url; else noLink" [href]="project.url" target="_blank">
+          {{ project.title }}
+        </a>
+
+         <ng-template #noLink>
+          {{ project.title }}
+        </ng-template>
+         <p class="text-gray-700">{{ project.description }}</p>
+      </h3>
+
+    </div>
+
+     <ng-template #inactiveProject>
+
+      <div class="mb-4 p-4 border rounded bg-gray-100 text-gray-400 italic">
+        {{ project.title }} (Tamamlanmamış)
+      </div>
+
+    </ng-template>
+
+  </li>
+</ul>
