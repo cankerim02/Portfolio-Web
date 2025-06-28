@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "Kişisel Web Sitesi",
+    "description": "Angular ve Tailwind ile geliştirdiğim kişisel portföy sitem.",
+    "url": "https://github.com/cankerim02/Portfolio-Web",
+    "active": true
+  },
+  {
+    "id": 2,
+    "title": "Todo List Uygulaması",
+    "description": "Angular Reactive Forms ve LocalStorage kullandığım proje.",
+    "active": true
+  },
+  {
+    "id": 3,
+    "title": "Bitmemiş Proje",
+    "description": "Henüz tamamlanmamış bir deneme projesi.",
+    "active": false
+  }
+]

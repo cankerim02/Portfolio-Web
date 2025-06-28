@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+  @apply bg-slate-900 text-gray-200 font-sans;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
