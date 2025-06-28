@@ -1,3 +1,53 @@
 
-<app-header></app-header>
-<router-outlet />
+
+<!-- <div class="min-h-screen bg-slate-900 text-gray-200 pt-20">
+
+  <section class="flex flex-col justify-center items-center text-center p-8">
+    <h1 class="text-4xl sm:text-6xl font-bold text-teal-400 mb-4">Merhaba, Ben Kerim Can</h1>
+    <p class="text-lg sm:text-xl max-w-xl mb-6">Frontend ve Backend geliştiren, modern tasarımlara önem veren bir yazılımcıyım.</p>
+    <div class="space-x-4">
+      <a routerLink="/projects" class="bg-teal-700 hover:bg-teal-600 text-white px-6 py-2 rounded-lg transition">Projelerimi Gör</a>
+      <a routerLink="/contact" class="border border-teal-500 hover:bg-teal-500 hover:text-white px-6 py-2 rounded-lg transition">İletişime Geç</a>
+    </div>
+  </section> -->
+
+  <div class="min-h-screen bg-slate-900 text-gray-200 pt-20">
+
+  <section class="flex flex-col justify-center items-center text-center p-8" id="home">
+    <h1 class="text-4xl sm:text-6xl font-bold text-teal-400 mb-4">Merhaba, Ben Kerim Can</h1>
+    <p class="text-lg sm:text-xl max-w-xl mb-6">Frontend ve Backend geliştiren, modern tasarımlara önem veren bir yazılımcıyım.</p>
+  </section>
+
+  <section id="about" class="py-16 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl text-teal-400 font-bold mb-4">Hakkımda</h2>
+    <p class="text-lg mb-4">Ben Kerim Can, Software Engineer olarak çalışıyorum. Modern teknolojilere ilgim var.</p>
+  </section>
+
+  <section id="projects" class="py-16 px-4 max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl text-teal-400 font-bold mb-8">Projelerim</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let project of projects.slice(0,3)"
+           class="bg-slate-800 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-teal-400 transition-transform duration-300">
+        <h3 class="text-2xl text-teal-300 mb-3">{{ project.title }}</h3>
+        <p class="text-gray-400 mb-3">{{ project.description }}</p>
+      </div>
+    </div>
+    <div class="mt-8">
+      <a href="/projects" class="bg-teal-700 hover:bg-teal-600 text-white px-6 py-2 rounded-lg transition">Tüm Projeleri Gör</a>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl text-teal-400 font-bold mb-4">İletişim</h2>
+    <p class="mb-6">Benimle iletişime geçmek için aşağıdaki sayfayı ziyaret edebilirsin.</p>
+    <a routerLink="/contact" class="border border-teal-500 hover:bg-teal-500 hover:text-white px-6 py-2 rounded-lg transition">İletişim Formu</a>
+  </section>
+
+
+
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
+</div>
+
+
