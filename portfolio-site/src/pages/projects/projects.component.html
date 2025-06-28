@@ -1,31 +1,18 @@
+<section class="min-h-screen bg-slate-900 text-gray-200 py-16 px-4 max-w-7xl mx-auto">
+  <h2 class="text-4xl font-bold text-teal-400 mb-12 text-center">Tüm Projelerim</h2>
 
-<h2 class="text-3xl font-bold mb-4">Projelerim</h2>
-
-<ul>
-  <li *ngFor="let project of projects">
-    <div *ngIf="project.active; else inactiveProject" class="mb-4 p-4 border rounded shadow hover:shadow-lg transition">
-
-      <h3 class="text-xl font-semibold text-blue-600">
-
-        <a *ngIf="project.url; else noLink" [href]="project.url" target="_blank">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div *ngFor="let project of projects"
+         class="bg-slate-800 rounded-2xl shadow-lg p-6 hover:scale-105 hover:shadow-teal-400 transition-transform duration-300">
+      <h3 class="text-2xl font-semibold text-teal-300 mb-3">
+        <a *ngIf="project.url; else noLink" [href]="project.url" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400">
           {{ project.title }}
         </a>
-
-         <ng-template #noLink>
-          {{ project.title }}
-        </ng-template>
-         <p class="text-gray-700">{{ project.description }}</p>
+        <ng-template #noLink>{{ project.title }}</ng-template>
       </h3>
-
+      <p class="text-gray-400 mb-4">{{ project.description }}</p>
+      <span *ngIf="project.active" class="inline-block bg-teal-700 text-teal-100 text-xs px-3 py-1 rounded-full font-semibold tracking-wide">Aktif</span>
+      <span *ngIf="!project.active" class="inline-block bg-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full font-semibold tracking-wide">Tamamlanmamış</span>
     </div>
-
-     <ng-template #inactiveProject>
-
-      <div class="mb-4 p-4 border rounded bg-gray-100 text-gray-400 italic">
-        {{ project.title }} (Tamamlanmamış)
-      </div>
-
-    </ng-template>
-
-  </li>
-</ul>
+  </div>
+</section>

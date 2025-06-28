@@ -1,4 +1,4 @@
-<section class="p-8">
+<!-- <section class="p-8">
   <h2 class="text-2xl font-bold">Hakkımda</h2>
   <p>Ben {{name}}, {{job}} olarak çalışıyorum.</p>
 
@@ -7,5 +7,18 @@
     <li *ngFor="let skill of skills">{{ skill }}</li>
   </ul>
   <p class="text-red-500 font-bold">Tailwind Aktif!</p>
+
+</section> -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center bg-slate-900 text-gray-200 px-4 py-16">
+
+  <h2 class="text-4xl sm:text-5xl font-bold text-teal-400 mb-6">Hakkımda</h2>
+
+  <p class="text-lg mb-4">Ben <span class="text-teal-300 font-semibold">{{ name }}</span>, {{ job }} olarak çalışıyorum.</p>
+
+  <h3 class="text-2xl text-teal-300 mb-3">Yeteneklerim:</h3>
+
+  <ul class="list-disc list-inside max-w-md text-left">
+    <li *ngFor="let skill of skills" class="mb-1 hover:text-teal-300 transition">{{ skill }}</li>
+  </ul>
 
 </section>

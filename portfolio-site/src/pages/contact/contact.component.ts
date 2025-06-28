@@ -11,11 +11,21 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactComponent {
  userName = '';
+ email = '';
  message ='';
 
  sendMessage() {
+    if (!this.userName || !this.email || !this.message) {
+      alert('Lütfen tüm alanları doldurun!');
+      return;
+    }
+    // Burada backend API çağrısı yapabilirsin (şimdilik konsola yazdırıyoruz)
     console.log('İsim:', this.userName);
+    console.log('Email:', this.email);
     console.log('Mesaj:', this.message);
-    alert('Mesaj gönderildi!');
-  }
-}
+
+     alert('Mesajınız gönderildi! Teşekkürler.');
+    this.userName = '';
+    this.email = '';
+    this.message = '';
+}}
