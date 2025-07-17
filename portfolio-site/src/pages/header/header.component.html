@@ -1,44 +1,41 @@
-
-  <!-- <div class="text-xl font-bold">Kerim Can Portfolio</div>
-  <nav>
-    <a routerLink="/" class="mr-4 hover:underline">Anasayfa</a>
-    <a routerLink="/about" class="mr-4 hover:underline">Hakkımda</a>
-   <a routerLink="/projects" class="hover:underline px-3">Projeler</a>
-    <a routerLink="/contact" class="hover:underline">İletişim</a>
-  </nav> -->
-
- <!-- <header>
-  <nav class="bg-teal-800 shadow-lg p-4 text-gray-100 flex justify-between items-center">
-    <div class="text-xl font-bold">Kerim Can Portfolio</div>
-    <div>
-      <a routerLink="/" class="px-3 hover:text-teal-300">Anasayfa</a>
-      <a routerLink="/projects" class="px-3 hover:text-teal-300">Projeler</a>
-      <a routerLink="/contact" class="px-3 hover:text-teal-300">İletişim</a>
-    </div>
-  </nav>
-</header> -->
-<!-- <header class="fixed w-full bg-slate-900 shadow-lg text-gray-100 z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-    <div class="text-2xl font-bold text-teal-400">Kerim Can</div>
-    <nav class="space-x-4">
-      <a routerLink="/" class="hover:text-teal-300">Anasayfa</a>
-      <a routerLink="/projects" class="hover:text-teal-300">Projeler</a>
-      <a routerLink="/contact" class="hover:text-teal-300">İletişim</a>
-    </nav>
+<header
+  class="sticky top-0 z-50 p-4 bg-backgroundLight dark:bg-backgroundDark
+         text-textLight dark:text-textDark
+         flex justify-between items-center shadow-md transition-colors duration-500"
+>
+  <!-- Sol: Logo veya İsim -->
+  <div class="text-2xl text-accentLight dark:text-accentDark font-bold font-[Pacifico]">
+     <span>💫</span> KC
   </div>
-</header> -->
 
-
-<header class="fixed w-full bg-slate-900 shadow-lg text-gray-100 z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-    <div class="text-2xl font-bold text-teal-400">Kerim Can</div>
-    <nav class="space-x-4">
-      <a href="#about" class="hover:text-teal-300 transition">Hakkımda</a>
-      <a href="#projects" class="hover:text-teal-300 transition">Projeler</a>
-      <a href="#contact" class="hover:text-teal-300 transition">İletişim</a>
+  <!-- Sağ: Menü ve Buton -->
+  <div class="flex items-center gap-6">
+    <nav class="flex gap-6">
+      <a href="#hero" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+        Anasayfa
+      </a>
+      <a href="#about" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+        Hakkımda
+      </a>
+      <a href="#projects" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+        Projeler
+      </a>
+      <a href="#contact" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+        İletişim
+      </a>
     </nav>
+
+    <button
+      (click)="toggleDarkMode.emit()"
+      aria-label="Toggle Dark Mode"
+      class="px-4 py-2 rounded-xl font-semibold
+             bg-accentLight dark:bg-accentDark
+             hover:bg-accentDark dark:hover:bg-accentLight
+             text-textLight dark:text-gray-300
+             transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
+    >
+      <span *ngIf="!isDarkMode">🌙 Dark Mode</span>
+      <span *ngIf="isDarkMode">☀️ Light Mode</span>
+    </button>
   </div>
 </header>
-
-
-
