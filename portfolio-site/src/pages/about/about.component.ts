@@ -11,5 +11,13 @@ import { Component } from '@angular/core';
 export class AboutComponent {
  name = 'Kerim Can'
  job = 'Software Engineer';
- skills = ['Angular', 'JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'HTML', 'CSS'];
+ // bu skilleri github profilimden alabilirim
+ skills = [
+  { name: 'Angular', level: 80 },
+  { name: 'TypeScript', level: 75 },
+  { name: 'C#', level: 85 },
+  { name: 'SQL', level: 70 },
+  { name: 'Tailwind CSS', level: 65 }
+];
+
 }
