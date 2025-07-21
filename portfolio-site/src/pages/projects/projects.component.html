@@ -1,18 +1,55 @@
-<section class="min-h-screen bg-slate-900 text-gray-200 py-16 px-4 max-w-7xl mx-auto">
-  <h2 class="text-4xl font-bold text-teal-400 mb-12 text-center">Tüm Projelerim</h2>
+<section
+  id="projects"
+  class="min-h-screen bg-backgroundLight dark:bg-backgroundDark
+         text-textLight dark:text-textDark
+         px-4 py-8 flex flex-col items-center transition-colors duration-500"
+>
+  <h2 class="text-4xl font-extrabold mb-8">My Projects</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-    <div *ngFor="let project of projects"
-         class="bg-slate-800 rounded-2xl shadow-lg p-6 hover:scale-105 hover:shadow-teal-400 transition-transform duration-300">
-      <h3 class="text-2xl font-semibold text-teal-300 mb-3">
-        <a *ngIf="project.url; else noLink" [href]="project.url" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400">
-          {{ project.title }}
-        </a>
-        <ng-template #noLink>{{ project.title }}</ng-template>
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl w-full">
+    <div
+      *ngFor="let project of displayedProjects"
+      class="p-6 rounded-xl shadow-md
+             bg-[rgba(193,154,107,0.2)] dark:bg-[rgba(120,144,156,0.15)]
+             hover:scale-105 hover:shadow-xl transition-transform duration-300 cursor-pointer"
+    >
+      <img
+        [src]="project.image"
+        alt="{{ project.title }}"
+        class="w-full h-40 object-cover rounded mb-4"
+      />
+
+      <h3 class="text-xl font-semibold mb-2 text-textLight dark:text-textDark">
+        {{ project.title }}
       </h3>
-      <p class="text-gray-400 mb-4">{{ project.description }}</p>
-      <span *ngIf="project.active" class="inline-block bg-teal-700 text-teal-100 text-xs px-3 py-1 rounded-full font-semibold tracking-wide">Aktif</span>
-      <span *ngIf="!project.active" class="inline-block bg-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full font-semibold tracking-wide">Tamamlanmamış</span>
+
+      <p class="text-textSecondary dark:text-gray-400 mb-6">
+        {{ project.description }}
+      </p>
+
+      <a
+        [href]="project.link"
+        target="_blank"
+        class="inline-block
+               bg-accentLight dark:bg-accentDark
+               hover:bg-accentDark dark:hover:bg-accentLight
+               text-textSecondary dark:text-gray-300
+               hover:text-textLight dark:hover:text-textLight
+               px-6 py-3 rounded-xl font-semibold transition-colors duration-300"
+      >
+        View Project
+      </a>
     </div>
   </div>
+
+  <button
+    (click)="toggleShowAll()"
+    class="mt-10
+           text-accentLight dark:text-gray-300
+           hover:text-accentDark dark:hover:text-accentLight
+           transition-colors duration-300
+           font-semibold underline"
+  >
+    {{ showAll ? 'Show Less' : 'View All Projects' }}
+  </button>
 </section>

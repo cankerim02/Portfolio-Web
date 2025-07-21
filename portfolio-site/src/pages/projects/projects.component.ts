@@ -13,21 +13,52 @@ import { ProjectHttpService } from '../../services/project-http.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
-  projects : Project[] = [];
+export class ProjectsComponent  {
+ showAll = false;
+ projects: Project[] = [
+    {
+      title: 'Portfolio Website',
+      description: 'My personal portfolio built with Angular and Tailwind CSS.',
+      image: '',
+      link: '#',
 
-    constructor(private projectHttpService: ProjectHttpService/*private projectService:ProjectService*/) { }
-
-  ngOnInit(): void {
-    // this.projects = this.projectService.getProjects();
-    this.projectHttpService.getProjects().subscribe({
-      next: (data) => {
-        this.projects = data;
-      },
-      error : (error) => {
-        console.error('Proje verileri alınırken hata oluştu:', error);
-      }
-    })
-
+    },
+    {
+      title: 'E-Commerce App',
+      description: 'A modern e-commerce platform with Angular frontend.',
+      image: '',
+      link: '#'
+    },
+    {
+      title: 'Blog Platform',
+      description: 'A blog site built using Angular and Node.js.',
+      image: '',
+      link: '#'
+    },
+     {
+      title: 'Blog Platform',
+      description: 'A blog site built using Angular and Node.js.',
+      image: '',
+      link: '#'
+    },
+     {
+      title: 'Blog Platform',
+      description: 'A blog site built using Angular and Node.js.',
+      image: '',
+      link: '#'
+    },
+     {
+      title: 'Blog Platform',
+      description: 'A blog site built using Angular and Node.js.',
+      image: '',
+      link: '#'
+    }
+  ];
+   get displayedProjects(): Project[] {
+    return this.showAll ? this.projects : this.projects.slice(0, 3);
   }
+   toggleShowAll() {
+    this.showAll = !this.showAll;
+  }
+
 }
