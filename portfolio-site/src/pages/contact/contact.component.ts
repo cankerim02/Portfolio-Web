@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
@@ -15,7 +15,12 @@ export class ContactComponent {
  message ='';
 
  sendMessage() {
-    if (!this.userName || !this.email || !this.message) {
+    console.log('Mesaj gönderiliyor...');
+    if  (
+        !this.userName?.trim() ||
+        !this.email?.trim() ||
+        !this.message?.trim()
+      ) {
       alert('Lütfen tüm alanları doldurun!');
       return;
     }
@@ -25,7 +30,10 @@ export class ContactComponent {
     console.log('Mesaj:', this.message);
 
      alert('Mesajınız gönderildi! Teşekkürler.');
+
+     //Form sıfırlama
     this.userName = '';
     this.email = '';
     this.message = '';
 }}
+

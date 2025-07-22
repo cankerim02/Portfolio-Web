@@ -1,45 +1,64 @@
-<!-- <section class="p-8">
-  <h2 class="text-2xl font-bold">İletişim</h2>
-  <form class="mt-4 space-y-4" (ngSubmit)="sendMessage()">
-    <div>
-       <label for=""> İsminiz:</label>
-       <input class="border p-2 w-full" [(ngModel)]="userName" name="userName" required>
+<section
+  id="contact"
+  class="relative min-h-screen bg-backgroundLight dark:bg-backgroundDark text-textLight dark:text-textDark flex items-center justify-center px-4 py-12"
+>
+  <div
+    class="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row max-w-5xl w-full transition-colors duration-500 border border-gray-200 dark:border-gray-700"
+  >
+    <!-- Sol: Büyük Resim -->
+    <div class="md:w-1/2 h-64 md:h-auto">
+      <img
+        src="assets/amasra.jpeg"
+        alt="Kerim Can"
+        class="w-full h-full object-cover object-center"
+      />
     </div>
 
-    <div>
-      <label>Mesajınız:</label>
-      <textarea class="border p-2 w-full" [(ngModel)]="message" name="message" required></textarea>
+    <!-- Sağ: Form -->
+    <div
+      class="md:w-1/2 p-10 flex flex-col justify-center rounded-xl min-h-[600px]"
+    >
+      <h2
+        class="text-4xl font-bold mb-6 text-gray-700 dark:text-gray-300 opacity-80"
+      >
+        Contact Me
+      </h2>
+
+      <form
+        (ngSubmit)="sendMessage()"
+        class="flex flex-col gap-6 text-gray-600 dark:text-gray-400"
+      >
+        <input
+          type="text"
+          placeholder="Your Name"
+          [(ngModel)]="userName"
+          name="userName"
+          class="input-style input-soft"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email Address"
+          [(ngModel)]="email"
+          name="email"
+          class="input-style input-soft"
+          required
+        />
+        <textarea
+          placeholder="Your Message"
+          [(ngModel)]="message"
+          name="message"
+          rows="6"
+          class="input-style input-soft"
+          required
+        ></textarea>
+
+        <button type="submit" class="bg-accentLight dark:bg-accentDark
+                 text-textSecondary dark:text-gray-300
+                 hover:bg-accentDark dark:hover:bg-accentLight
+                 hover:text-textLight dark:hover:text-textLight
+                 px-6 py-3 rounded-xl font-semibold transition-colors duration-300">Send Message</button>
+      </form>
     </div>
-
-    <button class="bg-blue-600 text-white px-4 py-2" type="submit">Gönder</button>
-  </form>
-</section> -->
-
-
-<section class="min-h-screen bg-slate-900 text-gray-200 flex flex-col justify-center items-center p-8">
-  <h2 class="text-4xl font-bold text-teal-400 mb-8">İletişim</h2>
-
-  <form (ngSubmit)="sendMessage()" class="w-full max-w-lg bg-slate-800 p-8 rounded-xl shadow-lg">
-
-    <label class="block mb-4">
-      <span class="text-gray-300">İsim</span>
-      <input type="text" [(ngModel)]="userName" name="userName" required
-        class="mt-1 block w-full rounded-md border border-gray-600 bg-slate-700 p-2 text-gray-200 focus:border-teal-400 focus:ring focus:ring-teal-400 focus:ring-opacity-50" />
-    </label>
-
-    <label class="block mb-4">
-      <span class="text-gray-300">Email</span>
-      <input type="email" [(ngModel)]="email" name="email" required
-        class="mt-1 block w-full rounded-md border border-gray-600 bg-slate-700 p-2 text-gray-200 focus:border-teal-400 focus:ring focus:ring-teal-400 focus:ring-opacity-50" />
-    </label>
-
-    <label class="block mb-6">
-      <span class="text-gray-300">Mesaj</span>
-      <textarea [(ngModel)]="message" name="message" rows="5" required
-        class="mt-1 block w-full rounded-md border border-gray-600 bg-slate-700 p-2 text-gray-200 focus:border-teal-400 focus:ring focus:ring-teal-400 focus:ring-opacity-50"></textarea>
-    </label>
-
-    <button type="submit"
-      class="w-full bg-teal-600 hover:bg-teal-500 text-white py-3 rounded-lg font-semibold transition">Gönder</button>
-  </form>
+  </div>
 </section>
