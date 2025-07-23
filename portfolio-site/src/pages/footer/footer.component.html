@@ -1,15 +1,42 @@
-<footer class="bg-slate-800 text-gray-300 py-6 mt-12">
+<footer
+  class="bg-backgroundLight dark:bg-backgroundDark
+         text-textLight dark:text-textDark
+         py-6 mt-0 transition-colors duration-500"
+>
   <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-
-    <div class="text-teal-400 font-semibold">
-      © 2024 Kerim Can | Tüm Hakları Saklıdır
+    <div class="text-accentLight dark:text-accentDark font-semibold">
+      © {{ currentYear }} Kerim Can | Tüm Hakları Saklıdır
     </div>
-
-    <div class="space-x-4">
-      <a href="https://github.com/cankerim02" target="_blank" class="hover:text-teal-300 transition">GitHub</a>
-      <a href="https://www.linkedin.com/in/cankerim02/" target="_blank" class="hover:text-teal-300 transition">LinkedIn</a>
-      <a href="mailto:cankerim02@gmail.com" class="hover:text-teal-300 transition">E-posta</a>
+    <div class="space-x-6 text-2xl flex">
+      <a
+        href="https://github.com/cankerim02"
+        target="_blank"
+        class="text-accentLight dark:text-accentDark
+               hover:text-gray-500 dark:hover:text-accentLight
+               transition-colors duration-300"
+        aria-label="GitHub"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/cankerim02/"
+        target="_blank"
+        class="text-accentLight dark:text-accentDark
+               hover:text-gray-500 dark:hover:text-accentLight
+               transition-colors duration-300"
+        aria-label="LinkedIn"
+      >
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a
+        href="mailto:cankerim02@gmail.com"
+        class="text-accentLight dark:text-accentDark
+               hover:text-gray-500 dark:hover:text-accentLight
+               transition-colors duration-300"
+        aria-label="Email"
+      >
+        <i class="fa-solid fa-envelope"></i>
+      </a>
     </div>
-
   </div>
 </footer>
