@@ -1,21 +1,38 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../pages/footer/footer.component';
 import { HeaderComponent } from '../pages/header/header.component';
 import { CommonModule } from '@angular/common';
+import { HeroComponent } from '../pages/hero/hero.component';
+import { AboutComponent } from "../pages/about/about.component";
+import { ProjectsComponent } from "../pages/projects/projects.component";
+import { ContactComponent } from "../pages/contact/contact.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FooterComponent,HeaderComponent,CommonModule],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    HeroComponent,
+    AboutComponent,
+    ProjectsComponent,
+    ContactComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  projects = [
-    { title: 'Proje 1', description: 'Açıklama 1' },
-    { title: 'Proje 2', description: 'Açıklama 2' },
-    { title: 'Proje 3', description: 'Açıklama 3' },
-    { title: 'Proje 4', description: 'Açıklama 4' }
-  ];
+  isDarkMode= false;
+
+toggleDarkMode() {
+  this.isDarkMode = !this.isDarkMode;
+
+  if (this.isDarkMode) {
+    document.documentElement.classList.add('dark');  // <html> elementine ekle
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
 }
