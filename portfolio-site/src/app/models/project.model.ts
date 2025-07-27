@@ -1,7 +1,7 @@
 export interface Project {
-  id: number;
+  id?: number; // Optional for new projects
   title: string;
   description: string;
-  url?: string;
-  active: boolean;
+  image: string;
+  link?: string;
 }
