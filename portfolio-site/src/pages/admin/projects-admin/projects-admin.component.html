@@ -1,0 +1,93 @@
+<h2 class="text-2xl font-bold mb-6  text-accentDark">Projects</h2>
+
+<div class="mb-4">
+  <button
+    class="bg-blue-600 text-white px-4 py-2 rounded"
+    (click)="openCreate()">
+    + Yeni Proje
+  </button>
+</div>
+
+
+
+<!-- Liste -->
+<div class="bg-white rounded shadow overflow-x-auto">
+  <table class="min-w-full text-left">
+    <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
+      <tr>
+        <th class="px-4 py-3">#</th>
+        <th class="px-4 py-3">Title</th>
+        <th class="px-4 py-3">Description</th>
+        <th class="px-4 py-3">Url</th>
+        <th class="px-4 py-3">Order</th>
+        <th class="px-4 py-3 text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y">
+      <tr *ngFor="let p of projects; let i = index">
+        <td class="px-4 py-3">{{ i + 1 }}</td>
+        <td class="px-4 py-3 font-medium">{{ p.title }}</td>
+        <td class="px-4 py-3">{{ p.description }}</td>
+        <td class="px-4 py-3">
+          <a *ngIf="p.projectUrl" [href]="p.projectUrl" target="_blank" class="text-blue-600 hover:underline">
+            Link
+          </a>
+        </td>
+        <td class="px-4 py-3">{{ p.order }}</td>
+        <td class="px-4 py-3 text-right space-x-2">
+          <button class="px-3 py-1 rounded bg-yellow-500 text-white" (click)="openEdit(p)">Düzenle</button>
+          <button class="px-3 py-1 rounded bg-red-600 text-white" (click)="delete(p)">Sil</button>
+        </td>
+      </tr>
+      <tr *ngIf="projects.length === 0">
+        <td colspan="6" class="px-4 py-6 text-center text-gray-500">Kayıt yok</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Form Modal (basic) -->
+<div
+  *ngIf="showForm"
+  class="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50"
+>
+  <div class="bg-white w-full max-w-xl rounded shadow p-6">
+    <h3 class="text-xl font-bold mb-4">
+      {{ editMode ? 'Projeyi Düzenle' : 'Yeni Proje Ekle' }}
+    </h3>
+
+    <form (ngSubmit)="save()" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Title</label>
+        <input [(ngModel)]="formModel.title" name="title" class="border p-2 w-full rounded" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Description</label>
+        <textarea [(ngModel)]="formModel.description" name="description" class="border p-2 w-full rounded" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Image Url</label>
+        <input [(ngModel)]="formModel.imageUrl" name="imageUrl" class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Project Url</label>
+        <input [(ngModel)]="formModel.projectUrl" name="projectUrl" class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Order</label>
+        <input [(ngModel)]="formModel.order" name="order" type="number" class="border p-2 w-full rounded">
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-4">
+        <button type="button" class="px-4 py-2 rounded bg-gray-300" (click)="closeForm()">Vazgeç</button>
+        <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white">
+          {{ editMode ? 'Güncelle' : 'Kaydet' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

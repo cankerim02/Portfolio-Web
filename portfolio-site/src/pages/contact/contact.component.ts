@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContactMessage } from '../../app/models/contact.model';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,30 +12,37 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
- userName = '';
+  userName = '';
  email = '';
  message ='';
 
- sendMessage() {
-    console.log('Mesaj gönderiliyor...');
-    if  (
-        !this.userName?.trim() ||
-        !this.email?.trim() ||
-        !this.message?.trim()
-      ) {
+ constructor(private contactService:ContactService)  {}
+
+   sendMessage() {
+    if  (!this.userName?.trim() || !this.email?.trim() || !this.message?.trim())
+      {
       alert('Lütfen tüm alanları doldurun!');
       return;
     }
-    // Burada backend API çağrısı yapabilirsin (şimdilik konsola yazdırıyoruz)
-    console.log('İsim:', this.userName);
-    console.log('Email:', this.email);
-    console.log('Mesaj:', this.message);
 
-     alert('Mesajınız gönderildi! Teşekkürler.');
+    const contactData:ContactMessage =
+    {
+      name : this.userName,
+      email : this.email,
+      message : this.message
+    }
 
-     //Form sıfırlama
-    this.userName = '';
-    this.email = '';
-    this.message = '';
-}}
+     this.contactService.sendMessage(contactData).subscribe({
+      next: () => {
+        alert('Mesajınız başarıyla gönderildi!');
+        this.userName = '';
+        this.email = '';
+        this.message = '';
+      },
+      error: (err) => {
+        console.error('Mesaj gönderilirken hata oluştu:', err);
+        alert('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+      }
+    });
+  }}
 
