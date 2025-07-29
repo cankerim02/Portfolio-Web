@@ -6,9 +6,6 @@ import { HeroComponent } from '../pages/hero/hero.component';
 import { AboutComponent } from "../pages/about/about.component";
 import { ProjectsComponent } from "../pages/projects/projects.component";
 import { ContactComponent } from "../pages/contact/contact.component";
-import { Router, NavigationEnd, Event, RouterOutlet } from '@angular/router';
-import { filter } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-root',
@@ -20,25 +17,14 @@ import { filter } from 'rxjs/operators';
     HeroComponent,
     AboutComponent,
     ProjectsComponent,
-    ContactComponent,
-    RouterOutlet
-],
+    ContactComponent
+    ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   isDarkMode= false;
-  isAdminRoute = false;
 
-  constructor(private router: Router) {
-   this.router.events
-  .pipe(
-    filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
-  )
-  .subscribe((event: NavigationEnd) => {
-    this.isAdminRoute = event.urlAfterRedirects.startsWith('/admin');
-  });
-  }
 toggleDarkMode() {
   this.isDarkMode = !this.isDarkMode;
 
