@@ -14,7 +14,7 @@
              hover:scale-105 hover:shadow-xl transition-transform duration-300 cursor-pointer"
     >
       <img
-        [src]="project.image"
+        [src]="project.imageUrl"
         alt="{{ project.title }}"
         class="w-full h-40 object-cover rounded mb-4"
       />
@@ -28,7 +28,7 @@
       </p>
 
       <a
-        [href]="project.link"
+        [href]="project.projectUrl"
         target="_blank"
         class="inline-block
                bg-accentLight dark:bg-accentDark
