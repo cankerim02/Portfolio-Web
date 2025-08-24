@@ -1,0 +1,25 @@
+
+<ng-container *ngIf="!isAdminRoute && !isLoginRoute">
+
+  <!-- Header -->
+  <app-header [isDarkMode]="isDarkMode" (toggleDarkMode)="toggleDarkMode()"></app-header>
+
+   <!-- Sayfa İçeriği -->
+
+  <main class="flex-grow
+           bg-backgroundLight dark:bg-backgroundDark
+           text-textLight dark:text-textDark
+           transition-colors duration-500">
+    <app-hero></app-hero>
+    <app-about></app-about>
+    <app-projects></app-projects>
+    <app-contact></app-contact>
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+</ng-container>
+
+<!-- Admin sayfalarında router outlet göster -->
+<router-outlet></router-outlet>
