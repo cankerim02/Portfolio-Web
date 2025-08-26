@@ -1,41 +1,54 @@
-<header
-  class="sticky top-0 z-50 p-4 bg-backgroundLight dark:bg-backgroundDark
-         text-textLight dark:text-textDark
-         flex justify-between items-center shadow-md transition-colors duration-500"
->
-  <!-- Sol: Logo veya İsim -->
-  <div class="text-2xl text-accentLight dark:text-accentDark font-bold font-[Pacifico]">
-     <span>💫</span> KC
-  </div>
+  <header
+    class="sticky top-0 z-50 p-4 bg-backgroundLight dark:bg-backgroundDark
+          text-textLight dark:text-textDark
+          flex justify-between items-center shadow-md transition-colors duration-500"
+  >
+    <!-- Sol: Logo veya İsim -->
+    <div class="text-2xl text-accentLight dark:text-accentDark font-bold font-[Pacifico]">
+      <span>💫</span> KC
+    </div>
 
-  <!-- Sağ: Menü ve Buton -->
-  <div class="flex items-center gap-6">
-    <nav class="flex gap-6">
-      <a href="#hero" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-        Anasayfa
-      </a>
-      <a href="#about" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-        Hakkımda
-      </a>
-      <a href="#projects" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-        Projeler
-      </a>
-      <a href="#contact" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-        İletişim
-      </a>
-    </nav>
+    <!-- Sağ: Menü ve Buton -->
+    <div class="flex items-center gap-6">
+      <nav class="flex gap-6">
+        <a href="#hero" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+          Anasayfa
+        </a>
+        <a href="#about" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+          Hakkımda
+        </a>
+        <a href="#projects" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+          Projeler
+        </a>
+        <a href="#contact" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
+          İletişim
+        </a>
+      </nav>
 
-    <button
-      (click)="onToggle()"
-      aria-label="Toggle Dark Mode"
-      class="px-4 py-2 rounded-xl font-semibold
-             bg-accentLight dark:bg-accentDark
-             hover:bg-accentDark dark:hover:bg-accentLight
-             text-textLight dark:text-gray-300
-             transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
-    >
-      <span *ngIf="!isDarkMode">🌙 Dark Mode</span>
-      <span *ngIf="isDarkMode">☀️ Light Mode</span>
-    </button>
-  </div>
-</header>
+      <button
+        (click)="onToggle()"
+        aria-label="Toggle Dark Mode"
+        class="px-4 py-2 rounded-xl font-semibold
+              bg-accentLight dark:bg-accentDark
+              hover:bg-accentDark dark:hover:bg-accentLight
+              text-textLight dark:text-gray-300
+              transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
+      >
+        <span *ngIf="!isDarkMode">🌙 Dark Mode</span>
+        <span *ngIf="isDarkMode">☀️ Light Mode</span>
+      </button>
+
+        <!-- Giriş yap butonu -->
+        <a
+        routerLink="/login"
+        class="px-4 py-2 rounded-xl font-semibold
+              bg-accentLight dark:bg-accentDark
+              hover:bg-accentDark dark:hover:bg-accentLight
+              text-textLight dark:text-gray-300
+              transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
+      >
+        🔐 Giriş Yap
+      </a>
+
+    </div>
+  </header>
