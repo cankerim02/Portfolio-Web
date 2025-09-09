@@ -1,0 +1,56 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 p-6">
+  <div
+    class="bg-white dark:bg-gray-900 shadow-2xl rounded-2xl max-w-md w-full p-10
+           border border-gray-200 dark:border-gray-700
+           transform transition-transform duration-300 hover:scale-[1.02]"
+  >
+    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center tracking-wide">
+      Admin Giriş
+    </h2>
+
+    <div
+      *ngIf="errorMessage"
+      class="mb-6 text-center text-red-600 bg-red-100 border border-red-400 rounded-lg py-3 px-4 font-medium"
+      role="alert"
+    >
+      {{ errorMessage }}
+    </div>
+
+    <label class="block mb-2 text-gray-700 dark:text-gray-300 font-semibold" for="email">
+      Email
+    </label>
+    <input
+      id="email"
+      [(ngModel)]="email"
+      type="email"
+      placeholder="example@domain.com"
+      class="w-full p-4 mb-6 rounded-lg border border-gray-300 dark:border-gray-700
+             bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white
+             focus:outline-none focus:ring-4 focus:ring-purple-500 focus:border-transparent
+             transition-shadow duration-300"
+    />
+
+    <label class="block mb-2 text-gray-700 dark:text-gray-300 font-semibold" for="password">
+      Şifre
+    </label>
+    <input
+      id="password"
+      [(ngModel)]="password"
+      type="password"
+      placeholder="••••••••"
+      class="w-full p-4 mb-8 rounded-lg border border-gray-300 dark:border-gray-700
+             bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white
+             focus:outline-none focus:ring-4 focus:ring-purple-500 focus:border-transparent
+             transition-shadow duration-300"
+    />
+
+    <button
+      (click)="login()"
+      class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700
+             text-white font-extrabold py-4 rounded-xl shadow-lg
+             transition-all duration-300 transform hover:scale-105 active:scale-95"
+    >
+      Giriş Yap
+    </button>
+  </div>
+</div>
