@@ -1,0 +1,16 @@
+/* Takvim kutusunu belirli boyutta yap */
+:host ::ng-deep .fc {
+  max-width: 900px;    /* Maksimum genişlik */
+  margin: 0 auto;      /* Ortala */
+  font-size: 16px;     /* Yazı boyutu */
+}
+
+/* Takvim yüksekliği */
+:host ::ng-deep .fc-view-harness {
+  min-height: 500px;   /* İsteğe göre değiştir */
+}
+
+/* Header ve gün başlıklarını küçült */
+:host ::ng-deep .fc-col-header-cell-cushion {
+  font-size: 12px;
+}
