@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProjectAdmin } from '../app/models/project-admin';
+import { environment } from '../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectAdminService {
-  private apiUrl = 'https://localhost:44321/api/Project'; // Backend API URL
+  private apiUrl = `${environment.apiUrl}/Project`; // Backend API URL
 
   constructor(private http: HttpClient) {}
 
