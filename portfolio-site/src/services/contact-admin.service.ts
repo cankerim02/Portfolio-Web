@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 
 import { ReplyDto } from '../app/models/replydto';
 import { ContactMessageAdmin } from '../app/models/contactmessage.admin';
+import { environment } from '../environments/environment';
 
 
 
 
 @Injectable({ providedIn: 'root' })
 export class ContactAdminService {
-  private apiUrl = 'https://localhost:44321/api/Admin'; // Backend'ine göre ayarla
+  private apiUrl = `${environment.apiUrl}/Admin` // Backend'ine göre ayarla
 
   constructor(private http: HttpClient) {}
 
