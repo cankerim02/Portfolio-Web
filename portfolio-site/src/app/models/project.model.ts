@@ -1,7 +1,9 @@
 export interface Project {
-  id?: number; // Optional for new projects
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
-  projectUrl?: string;
+  projectUrl: string;
+  startDate?: Date;
+  endDate?: Date;
 }
