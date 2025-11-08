@@ -33,5 +33,9 @@ export class LoginAdminComponent {
         }
       });
   }
+
+  goHome(){
+    this.router.navigate(['/']); //login olmadan anasayfaya git
+  }
 }
 

@@ -1,54 +1,79 @@
-  <header
-    class="sticky top-0 z-50 p-4 bg-backgroundLight dark:bg-backgroundDark
-          text-textLight dark:text-textDark
-          flex justify-between items-center shadow-md transition-colors duration-500"
-  >
-    <!-- Sol: Logo veya İsim -->
-    <div class="text-2xl text-accentLight dark:text-accentDark font-bold font-[Pacifico]">
-      <span>💫</span> KC
-    </div>
+<header class="sticky top-0 z-50 p-4 bg-backgroundLight dark:bg-backgroundDark
+               text-textLight dark:text-textDark
+               flex justify-between items-center shadow-md transition-colors duration-500">
 
-    <!-- Sağ: Menü ve Buton -->
-    <div class="flex items-center gap-6">
-      <nav class="flex gap-6">
-        <a href="#hero" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-          Anasayfa
-        </a>
-        <a href="#about" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-          Hakkımda
-        </a>
-        <a href="#projects" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-          Projeler
-        </a>
-        <a href="#contact" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">
-          İletişim
-        </a>
-      </nav>
+  <!-- Sol: Logo -->
+  <div class="flex items-center gap-2 flex-shrink-0">
+    <span class="text-2xl font-bold font-[Pacifico] text-accentLight dark:text-accentDark">KC</span>
+  </div>
 
-      <button
-        (click)="onToggle()"
-        aria-label="Toggle Dark Mode"
-        class="px-4 py-2 rounded-xl font-semibold
-              bg-accentLight dark:bg-accentDark
-              hover:bg-accentDark dark:hover:bg-accentLight
-              text-textLight dark:text-gray-300
-              transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
-      >
-        <span *ngIf="!isDarkMode">🌙 Dark Mode</span>
-        <span *ngIf="isDarkMode">☀️ Light Mode</span>
-      </button>
+  <!-- Orta: Menü -->
+  <nav class="hidden md:flex gap-6">
+    <a href="#hero" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">Anasayfa</a>
+    <a href="#about" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">Hakkımda</a>
+    <a href="#projects" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">Projeler</a>
+    <a href="#contact" class="hover:text-accentLight dark:hover:text-accentDark transition-colors duration-300">İletişim</a>
+  </nav>
 
-        <!-- Giriş yap butonu -->
-        <a
-        routerLink="/login"
-        class="px-4 py-2 rounded-xl font-semibold
-              bg-accentLight dark:bg-accentDark
-              hover:bg-accentDark dark:hover:bg-accentLight
-              text-textLight dark:text-gray-300
-              transition-colors duration-300 flex items-center gap-2 text-sm cursor-pointer"
-      >
-        🔐 Giriş Yap
-      </a>
+  <!-- Sağ: Dark Mode + Giriş Yap + Hamburger -->
+  <div class="flex items-center gap-2 flex-shrink-0">
+    <!-- Dark Mode -->
+    <button
+      (click)="onToggle()"
+      aria-label="Toggle Dark Mode"
+      class="hidden md:flex px-3 py-2 rounded-xl font-semibold
+             bg-accentLight dark:bg-accentDark
+             hover:bg-accentDark dark:hover:bg-accentLight
+             text-textLight dark:text-gray-300
+             transition-colors duration-300 items-center gap-2 text-sm cursor-pointer"
+    >
+      <ng-container *ngIf="!isDarkMode">
+        <i class="fa-solid fa-moon"></i> Dark Mode
+      </ng-container>
+      <ng-container *ngIf="isDarkMode">
+        <i class="fa-solid fa-sun"></i> Light Mode
+      </ng-container>
+    </button>
 
-    </div>
-  </header>
+    <!-- Giriş Yap -->
+    <a
+      routerLink="/login"
+      class="hidden md:flex px-3 py-2 rounded-xl font-semibold
+             bg-accentLight dark:bg-accentDark
+             hover:bg-accentDark dark:hover:bg-accentLight
+             text-textLight dark:text-gray-300
+             transition-colors duration-300 items-center gap-2 text-sm cursor-pointer"
+    >
+      <i class="fa-solid fa-lock"></i> Giriş Yap
+    </a>
+
+    <!-- Hamburger -->
+    <button (click)="toggleMenu()" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobil Açılır Menü -->
+  <div *ngIf="isMenuOpen"
+       class="absolute top-full right-4 bg-backgroundLight dark:bg-backgroundDark shadow-md
+              flex flex-col items-start p-4 gap-4 w-48 z-50 md:hidden rounded-xl">
+    <a href="#hero" (click)="closeMenu()" class="hover:text-accentLight dark:hover:text-accentDark w-full">Anasayfa</a>
+    <a href="#about" (click)="closeMenu()" class="hover:text-accentLight dark:hover:text-accentDark w-full">Hakkımda</a>
+    <a href="#projects" (click)="closeMenu()" class="hover:text-accentLight dark:hover:text-accentDark w-full">Projeler</a>
+    <a href="#contact" (click)="closeMenu()" class="hover:text-accentLight dark:hover:text-accentDark w-full">İletişim</a>
+
+    <!-- Dark Mode Mobil -->
+    <button (click)="onToggle(); closeMenu()"
+            class="w-full flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+      <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+    </button>
+
+    <!-- Giriş Yap Mobil -->
+    <a routerLink="/login" (click)="closeMenu()"
+       class="w-full flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+      <i class="fa-solid fa-lock"></i> Giriş Yap
+    </a>
+  </div>
+
+</header>

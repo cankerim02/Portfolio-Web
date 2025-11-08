@@ -12,7 +12,17 @@ import { RouterLink } from '@angular/router';
 export class HeaderComponent {
  @Input() isDarkMode = false;
  @Output() toggleDarkMode = new EventEmitter<void>();
+
+ isMenuOpen = false; //mobil menü durumu
  onToggle() {
     this.toggleDarkMode.emit();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

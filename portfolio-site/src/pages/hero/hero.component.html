@@ -2,7 +2,7 @@
   id="hero"
   class="h-screen bg-backgroundLight dark:bg-backgroundDark
          text-textLight dark:text-textDark
-         flex flex-col justify-center items-center text-center px-4 relative overflow-hidden transition-colors duration-500"
+         flex flex-col justify-center items-center text-center px-2 sm:px-4 relative overflow-hidden transition-colors duration-500"
 >
   <img
     src="assets/amasra.jpeg"
@@ -10,23 +10,23 @@
     class="absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-50 brightness-90 dark:brightness-75 blur-sm"
   />
 
-  <div class="relative z-10 max-w-3xl">
-    <h1 class="text-5xl font-bold mb-4">
+  <div class="relative z-10 max-w-2xl sm:max-w-3xl px-2 sm:px-0">
+    <h1 class="text-3xl sn:text-4xl md:text-5xl font-bold mb-4 leading-tight">
       Hi, I'm {{ name }}
     </h1>
-    <h2 class="text-3xl mb-6 text-accentLight dark:text-accentDark">
+    <h2 class="text-3xl sm:text-2xl md:text-3xl mb-6 text-accentLight dark:text-accentDark">
       {{ job }}
     </h2>
-    <p class="text-textSecondary dark:text-gray-400 max-w-xl mb-8">
+    <p class="text-sm sm:text-base text-textSecondary dark:text-gray-400 max-w-sm sm:max-w-xl mx-auto mb-8">
       Welcome to my portfolio! Explore my work and get to know me better.
     </p>
 
     <a
       href="#about"
-      class="bg-accentLight dark:bg-accentDark
+      class="inline-block bg-accentLight dark:bg-accentDark
              hover:bg-accentDark dark:hover:bg-accentLight
              text-textLight dark:text-gray-300
-             px-6 py-3 rounded-xl font-semibold transition-colors duration-300"
+             px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-colors duration-300"
     >
       More About Me
     </a>
