@@ -3,35 +3,37 @@
   class="min-h-screen bg-backgroundLight dark:bg-backgroundDark
          text-textLight dark:text-textDark
          flex items-center justify-center
-         px-4 md:px-20 py-20 transition-colors duration-500"
+         px-6 md:px-16 py-20 transition-colors duration-500"
 >
   <div class="flex flex-col md:flex-row gap-16 max-w-6xl w-full">
     <!-- Sol: Hakkımda -->
     <div class="md:w-1/2 space-y-6">
-      <h2 class="text-4xl font-extrabold text-textLight dark:text-textDark mb-4">About Me</h2>
-     <p class="text-lg text-textSecondary dark:text-gray-400 leading-relaxed space-y-2">
-  I'm <span class="text-accentLight dark:text-accentDark font-semibold">Kerim Can</span>, a Software Engineer who loves bridging creativity with technology.
-  Whether it's crafting a dynamic web interface or optimizing backend processes, I thrive on building experiences that users love.
-  I’m constantly learning — be it a new framework or a smarter way to write scalable code.
-</p>
-<p class="text-lg text-textSecondary dark:text-gray-400 leading-relaxed">
-  When I’m not coding, you'll find me exploring new places and capturing moments through photography.
-</p>
+      <h2 class="text-4xl font-extrabold text-textLight dark:text-textDark mb-6">About Me</h2>
+      <p class="text-lg text-textSecondary dark:text-gray-400 leading-relaxed">
+        I'm <span class="text-accentLight dark:text-accentDark font-semibold">Kerim Can</span>, a Software Engineer who loves bridging creativity with technology.
+        Whether it's crafting a dynamic web interface or optimizing backend processes, I thrive on building experiences that users love.
+      </p>
+      <p class="text-lg text-textSecondary dark:text-gray-400 leading-relaxed">
+              I’m constantly learning — be it a new framework or a smarter way to write scalable code.
+      </p>
+      <p class="text-lg text-textSecondary dark:text-gray-400 leading-relaxed">
+        When I’m not coding, you'll find me exploring new places and capturing moments through photography.
+      </p>
 
     </div>
 
     <!-- Sağ: Skills -->
     <div class="md:w-1/2 space-y-6">
-      <h2 class="text-4xl font-extrabold text-textLight dark:text-textDark mb-4">My Skills</h2>
+      <h2 class="text-4xl font-extrabold text-textLight dark:text-textDark mb-6">My Skills</h2>
       <ul class="flex flex-col gap-5 w-full">
         <li *ngFor="let skill of skills">
           <div class="flex justify-between mb-1 text-textLight dark:text-textDark font-medium">
             <span>{{ skill.name }}</span>
             <span>{{ skill.level }}%</span>
           </div>
-          <div class="w-full bg-accentLight dark:bg-accentDark rounded-full h-3">
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
             <div
-              class="bg-accentDark dark:bg-accentLight h-3 rounded-full transition-all duration-500"
+              class="bg-accentDark dark:bg-accentLight h-3 rounded-full transition-all duration-700 ease-out"
               [style.width.%]="skill.level"
             ></div>
           </div>
