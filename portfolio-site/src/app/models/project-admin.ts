@@ -4,5 +4,6 @@ export interface ProjectAdmin {
   description: string;
   imageUrl?: string;
   projectUrl?: string;
-  order?: number;
+  startDate?: Date;
+  endDate?: Date;
 }
