@@ -12,5 +12,14 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class AdminLayoutComponent {
 
+menuOpen = false;
+screenWidth = window.innerWidth;
   constructor(public authService: AuthService) {}
+
+  ngOnInit() {
+      window.addEventListener('resize', () => {
+    this.screenWidth = window.innerWidth;
+  });
+  }
+
 }
