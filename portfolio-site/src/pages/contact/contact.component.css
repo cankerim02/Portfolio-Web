@@ -7,7 +7,7 @@
 }
 
 
-.input-style {
+/* .input-style {
   @apply p-3 rounded bg-backgroundLight dark:bg-backgroundDark
          text-textLight dark:text-textDark
          border border-gray-300 dark:border-gray-600
@@ -21,6 +21,6 @@
          hover:bg-textDark dark:hover:bg-textLight
          text-backgroundLight dark:text-backgroundDark
          px-6 py-3 rounded-xl font-semibold transition-colors duration-300;
-}
+} */
 
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../../services/dashboard-admin.service';
-import { CalendarWrapperComponent } from '../calendar-wrapper/calendar-wrapper.component';
+ import { CalendarWrapperComponent } from '../calendar-wrapper/calendar-wrapper.component';
 
 @Component({
   selector: 'app-dashboard',

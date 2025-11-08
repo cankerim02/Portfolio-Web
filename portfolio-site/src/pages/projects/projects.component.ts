@@ -10,17 +10,25 @@ import { Project } from '../../app/models/project.model';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent  {
+export class ProjectsComponent implements OnInit {
  showAll = false;
  projects: Project[] = [];
+
 
  constructor(private projectService: ProjectService) { }
 
  ngOnInit(): void {
    this.projectService.getAllProject().subscribe({
-    next : (data) => this.projects = data,
+    next : (data) => {
+      this.projects = data.map(p => ({
+      ...p,
+      imageUrl: p.imageUrl,
+      projectUrl: p.projectUrl
+    }));
+    },
+
     error: (err) => console.error('Projeler yüklenirken hata:', err)
- })
+ });
 }
    get displayedProjects(): Project[] {
     return this.showAll ? this.projects : this.projects.slice(0, 3);

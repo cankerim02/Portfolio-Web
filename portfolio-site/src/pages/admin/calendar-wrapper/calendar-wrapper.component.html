@@ -1,0 +1,22 @@
+
+<div class="flex justify-between mb-2">
+  <button (click)="prevMonth()" class="px-2 py-1 bg-blue-200  rounded">‹ Önceki Ay</button>
+  <h3 class="font-bold">{{ currentMonth | date:'MMMM yyyy' }}</h3>
+  <button (click)="nextMonth()" class="px-2 py-1 bg-blue-200 rounded">Sonraki Ay ›</button>
+</div>
+
+
+<div class="grid grid-cols-7 gap-1 p-4 border rounded">
+  <!-- Haftanın Günleri -->
+  <div *ngFor="let dayName of ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz']"
+       class="font-bold text-center p-2 border-b">
+    {{ dayName }}
+  </div>
+
+  <!-- Ayın Günleri -->
+  <div *ngFor="let day of calenderDays"
+       class="p-2 text-center border rounded cursor-pointer hover:bg-blue-200 transition-colors duration-200"
+       [class.bg-blue-200]="day && isEventDay(day)">
+    {{ day ? day.getDate() : '' }}
+  </div>
+</div>

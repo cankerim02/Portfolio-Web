@@ -1,25 +1,26 @@
 <section
   id="contact"
-  class="relative min-h-screen bg-backgroundLight dark:bg-backgroundDark text-textLight dark:text-textDark flex items-center justify-center px-4 py-12"
+  class="relative min-h-screen bg-backgroundLight dark:bg-backgroundDark text-textLight dark:text-textDark flex items-center justify-center px-6 md:px-12 py-16 transition-colors duration-500"
 >
   <div
-    class="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row max-w-5xl w-full transition-colors duration-500 border border-gray-200 dark:border-gray-700"
+    class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-w-6xl w-full  border border-gray-200 dark:border-gray-700"
   >
     <!-- Sol: Büyük Resim -->
-    <div class="md:w-1/2 h-64 md:h-auto">
+    <div class="relative h-64 md:h-auto md:w-1/2">
       <img
         src="assets/amasra.jpeg"
         alt="Kerim Can"
         class="w-full h-full object-cover object-center"
       />
+
     </div>
 
     <!-- Sağ: Form -->
     <div
-      class="md:w-1/2 p-10 flex flex-col justify-center rounded-xl min-h-[600px]"
+      class="md:w-1/2 p-10 flex flex-col justify-center  min-h-[500px]"
     >
       <h2
-        class="text-4xl font-bold mb-6 text-gray-700 dark:text-gray-300 opacity-80"
+        class="text-4xl font-bold mb-8 text-gray-700 dark:text-gray-200"
       >
         Contact Me
       </h2>
@@ -33,7 +34,9 @@
           placeholder="Your Name"
           [(ngModel)]="userName"
           name="userName"
-          class="input-style input-soft"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600
+                 focus:outline-none focus:ring-2 focus:ring-accentLight dark:focus:ring-accentDark
+                 bg-white dark:bg-gray-900 transition"
           required
         />
         <input
@@ -41,7 +44,9 @@
           placeholder="Email Address"
           [(ngModel)]="email"
           name="email"
-          class="input-style input-soft"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600
+                 focus:outline-none focus:ring-2 focus:ring-accentLight dark:focus:ring-accentDark
+                 bg-white dark:bg-gray-900 transition"
           required
         />
         <textarea
@@ -49,15 +54,18 @@
           [(ngModel)]="message"
           name="message"
           rows="6"
-          class="input-style input-soft"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600
+                 focus:outline-none focus:ring-2 focus:ring-accentLight dark:focus:ring-accentDark
+                 bg-white dark:bg-gray-900 transition"
           required
         ></textarea>
 
-        <button type="submit" class="bg-accentLight dark:bg-accentDark
-                 text-textSecondary dark:text-gray-300
-                 hover:bg-accentDark dark:hover:bg-accentLight
-                 hover:text-textLight dark:hover:text-textLight
-                 px-6 py-3 rounded-xl font-semibold transition-colors duration-300">Send Message</button>
+        <button type="submit"
+        class="bg-gradient-to-r from-accentLight to-accentDark
+                 text-white px-6 py-3 rounded-xl font-semibold
+                 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
+                 Send Message
+        </button>
       </form>
     </div>
   </div>

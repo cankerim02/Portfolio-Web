@@ -2,49 +2,54 @@
   id="projects"
   class="min-h-screen bg-backgroundLight dark:bg-backgroundDark
          text-textLight dark:text-textDark
-         px-4 py-8 flex flex-col items-center transition-colors duration-500"
+         px-6 py-8 flex flex-col items-center transition-colors duration-500"
 >
-  <h2 class="text-4xl font-extrabold mb-8">My Projects</h2>
+  <!-- Başlık -->
+  <h2 class="text-4xl font-bold mb-8">My Projects</h2>
 
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl w-full">
+  <!-- Proje Kartları -->
+  <div class="flex flex-col gap-8 max-w-5xl w-full">
     <div
       *ngFor="let project of displayedProjects"
-      class="p-6 rounded-xl shadow-md
+      class="flex flex-col md:flex-row items-stretch rounded-2xl shadow-md
              bg-[rgba(193,154,107,0.2)] dark:bg-[rgba(120,144,156,0.15)]
-             hover:scale-105 hover:shadow-xl transition-transform duration-300 cursor-pointer"
+             hover:scale-[1.02] hover:shadow-xl
+             transition-transform duration-300 cursor-pointer overflow-hidden"
     >
-      <img
-        [src]="project.imageUrl"
-        alt="{{ project.title }}"
-        class="w-full h-40 object-cover rounded mb-4"
-      />
+      <!-- Görsel -->
+      <div class="w-full md:w-1/3 aspect-w-16 aspect-h-9">
+        <img
+          [src]="project.imageUrl"
+          alt="{{ project.title }}"
+          class="w-full h-full object-cover"
+        />
+      </div>
 
-      <h3 class="text-xl font-semibold mb-2 text-textLight dark:text-textDark">
-        {{ project.title }}
-      </h3>
-
-      <p class="text-textSecondary dark:text-gray-400 mb-6">
-        {{ project.description }}
-      </p>
-
-      <a
-        [href]="project.projectUrl"
-        target="_blank"
-        class="inline-block
-               bg-accentLight dark:bg-accentDark
-               hover:bg-accentDark dark:hover:bg-accentLight
-               text-textSecondary dark:text-gray-300
-               hover:text-textLight dark:hover:text-textLight
-               px-6 py-3 rounded-xl font-semibold transition-colors duration-300"
-      >
-        View Project
-      </a>
+      <!-- İçerik -->
+      <div class="w-full md:w-2/3 flex flex-col p-6">
+        <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+        <p class="text-textSecondary dark:text-gray-400 mb-4 flex-grow">
+          {{ project.description }}
+        </p>
+        <a
+          [href]="project.projectUrl"
+          target="_blank"
+          class="inline-flex items-center justify-center gap-2
+                 bg-accentLight dark:bg-accentDark
+                 hover:bg-accentDark dark:hover:bg-accentLight
+                 text-white px-4 py-2 rounded-xl font-semibold
+                 transition-colors duration-300 mt-auto self-start"
+        >
+          View Project
+        </a>
+      </div>
     </div>
   </div>
 
+  <!-- Show More Button -->
   <button
     (click)="toggleShowAll()"
-    class="mt-10
+    class="mt-12
            text-accentLight dark:text-gray-300
            hover:text-accentDark dark:hover:text-accentLight
            transition-colors duration-300
