@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ContactMessageAdmin } from '../../../app/models/contactmessage.admin';
 import { ContactAdminService } from '../../../services/contact-admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -19,11 +20,12 @@ export class ContactsAdminComponent {
   replyText = '';
   loading = false;
 
-  constructor(private contactAdminService: ContactAdminService) {}
+  constructor(private contactAdminService: ContactAdminService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.loadingMessages();
-    console.log('ContactsAdmin init -> API’den mesajlar çekilecek');
     // TODO: API'den contact messages listesi
   }
 
@@ -32,7 +34,9 @@ export class ContactsAdminComponent {
     this.loading = true;
     this.contactAdminService.getAll().subscribe({
       next : res => this.messages = res,
-      error: err => console.error('Error loading messages:', err),
+      error: err => this.toastrService.error(
+        err?.error?.errmessage || 'Mesajlar yüklenemedi. Lütfen tekrar deneyin.','Hata'
+    ),
       complete: () => this.loading = false
     });
   }
@@ -45,7 +49,7 @@ export class ContactsAdminComponent {
 
   sendReply() {
     if (!this.selected) return;
-    console.log('REPLY ->', this.selected.id, this.replyText);
+
     const id = this.selected.id;
     this.contactAdminService.reply(id, { reply: this.replyText }).subscribe({
     // TODO: API -> /api/admin/messages/{id}/reply POST { reply: replyText }
@@ -56,11 +60,10 @@ export class ContactsAdminComponent {
         this.selected!.isReplied = true;
         this.selected!.repliedAt = new Date().toISOString();
         this.replyText = '';
-        alert("Reply sent successfully!");
+        this.toastrService.success('Yanıt başarıyla gönderildi', 'Başarılı');
       },
-      error: (err) => {
-        console.error('Error sending reply:', err);
-        alert("Failed to send reply. Please try again.");
+      error: () => {
+        this.toastrService.error('Yanıt gönderilemedi. Lütfen tekrar deneyin.', 'Hata');
       }
     });
   }

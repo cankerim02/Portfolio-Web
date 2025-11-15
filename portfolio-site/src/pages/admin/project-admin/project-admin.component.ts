@@ -56,7 +56,6 @@ export class ProjectsAdminComponent {
   save() {
        // TODO: API çağrısı -> update
     if (this.editMode) {
-        console.log('UPDATE ->', this.formModel);
         this.projectAdminService.update(this.formModel).subscribe({
           next : () => {
              this.toastr.success('Proje başarıyla güncellendi.', 'Başarılı');
@@ -68,7 +67,6 @@ export class ProjectsAdminComponent {
 
         // TODO: API çağrısı -> create
      else {
-        console.log('CREATE ->', this.formModel);
         this.projectAdminService.create(this.formModel).subscribe(
           {
             next : () => {
@@ -80,10 +78,11 @@ export class ProjectsAdminComponent {
       }
     this.closeForm();
   }
+
 // TODO: API çağrısı -> delete
   delete(project: ProjectAdmin) {
     if (!project.id) return;
-    console.log('DELETE ->', project.id);
+
     this.projectAdminService.delete(project.id).subscribe({
       next :() => {
         this.toastr.success('Proje başarıyla silindi.', 'Başarılı');
