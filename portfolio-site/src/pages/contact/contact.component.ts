@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactMessage } from '../../app/models/contact.model';
 import { ContactService } from '../../services/contact.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -16,12 +17,14 @@ export class ContactComponent {
  email = '';
  message ='';
 
- constructor(private contactService:ContactService)  {}
+ constructor(private contactService:ContactService,
+  private toastrService:ToastrService
+ )  {}
 
    sendMessage() {
     if  (!this.userName?.trim() || !this.email?.trim() || !this.message?.trim())
       {
-      alert('Lütfen tüm alanları doldurun!');
+        this.toastrService.warning('Lütfen tüm alanları doldurun!','Uyarı');
       return;
     }
 
@@ -34,14 +37,13 @@ export class ContactComponent {
 
      this.contactService.sendMessage(contactData).subscribe({
       next: () => {
-        alert('Mesajınız başarıyla gönderildi!');
+        this.toastrService.success('Mesajınız başarıyla gönderildi!', 'Başarılı');
         this.userName = '';
         this.email = '';
         this.message = '';
       },
-      error: (err) => {
-        console.error('Mesaj gönderilirken hata oluştu:', err);
-        alert('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+      error: () => {
+        this.toastrService.error('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.', 'Hata');
       }
     });
   }}
